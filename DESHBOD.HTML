@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eSports Tournament</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; } 
+    body { 
+      font-family: 'Arial', sans-serif; 
+      background-color: #121212; 
+      color: white; 
+    }
+    /* Navbar */
+    .navbar { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 20px; 
+      background: linear-gradient(145deg, #0f0f0f, #1b1b1b); 
+    }
+    .navbar h1 { 
+      font-size: 36px; 
+      text-align: center; 
+      font-weight: bold; 
+      background: linear-gradient(145deg, #ff6b35, #ff4d4d); 
+      -webkit-background-clip: text; 
+      color: transparent; 
+      animation: glowText 1.5s ease-in-out infinite alternate; 
+    }
+    /* Animation for glowing text */
+    @keyframes glowText { 
+      0% { 
+        text-shadow: 0 0 5px #ff6b35, 0 0 10px #ff6b35, 0 0 20px #ff4d4d, 0 0 40px #ff4d4d; 
+      } 
+      100% { 
+        text-shadow: 0 0 10px #ff6b35, 0 0 20px #ff6b35, 0 0 30px #ff4d4d, 0 0 50px #ff4d4d; 
+      } 
+    }
+    /* Profile Button */
+    .profile-button { 
+      font-size: 30px; 
+      color: #ff6b35; 
+      cursor: pointer; 
+      margin-left: 20px; 
+    }
+    /* Main Content */
+    .main-content { 
+      padding: 30px; 
+    }
+    /* Tournament Heading */
+    .tournament-heading { 
+      font-size: 72px; 
+      font-weight: bold; 
+      text-align: center; 
+      color: #ff6b35; 
+      letter-spacing: 3px; 
+      margin-bottom: 30px; 
+      text-transform: uppercase; 
+      position: relative; 
+      animation: glowText 1.5s ease-in-out infinite alternate; 
+    }
+    .tournament-heading span { 
+      color: #ff4d4d; 
+      text-transform: uppercase; 
+      position: relative; 
+      font-size: inherit; 
+      animation: glow 1.5s ease-in-out infinite alternate; 
+    }
+    /* Lighting effect */
+    @keyframes glow { 
+      0% { 
+        text-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 40px #ff4d4d; 
+      } 
+      100% { 
+        text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 30px #ff4d4d, 0 0 50px #ff4d4d; 
+      } 
+    }
+    /* Tournament Cards */
+    .game-container { 
+      display: flex; 
+      justify-content: space-around; 
+      gap: 20px; 
+      flex-wrap: wrap; 
+    }
+    .game-card { 
+      background-color: #2a2a2a; 
+      width: 300px; 
+      padding: 20px; 
+      text-align: center; 
+      border-radius: 10px; 
+      cursor: pointer; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      animation: glowText 1.5s ease-in-out infinite alternate; 
+    }
+    .game-card:hover { 
+      transform: scale(1.05); 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+    .game-card h3 { 
+      margin-top: 10px; 
+      font-size: 20px; 
+      color: #fff; 
+    }
+    .game-card p { 
+      color: #aaa; 
+      margin-top: 10px; 
+      font-size: 16px; 
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      padding: 50px;
+    }
+    .modal-content {
+      background-color: #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
+    /* Mobile Responsive */
+    @media (max-width: 768px) { 
+      .game-container { 
+        justify-content: center; 
+        flex-direction: column; 
+      }
+      .btn { 
+        width: 100%; 
+        padding: 12px 0; 
+      }
+      .tournament-heading { 
+        font-size: 36px; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>MANNAN - PAKISTAN</h1>
+    <div class="important-updates">
+      <span class="profile-button" onclick="window.location.href='profile.html'">👤</span> <!-- Profile Button -->
+    </div>
+  </div>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- eSports Tournament Heading -->
+    <div class="tournament-heading">
+      E-SPORTS <span>TOURNAMENT</span>
+    </div>
+    <!-- Tournament Cards -->
+    <div class="game-container">
+      <div class="game-card" id="game1" onclick="window.location.href='vip1v1.html'">
+        <h3>🎮 VIP 1v1</h3>
+        <p>Compete with others in a thrilling 1v1 match!</p>
+      </div>
+      <div class="game-card" id="game2" onclick="window.location.href='br-survival.html'">
+        <h3>⚔️ BR Survival</h3>
+        <p>Survive the battle and be the last one standing!</p>
+      </div>
+      <div class="game-card" id="game3" onclick="window.location.href='br-perkill.html'">
+        <h3>💥 BR Perkill</h3>
+        <p>Test your skills and dominate with every kill!</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // In case the user needs further customization on the links or functionality.
+    document.getElementById("game1").onclick = function() {
+      window.location.href = 'vip1v1.html';
+    };
+    document.getElementById("game2").onclick = function() {
+      window.location.href = 'br-survival.html';
+    };
+    document.getElementById("game3").onclick = function() {
+      window.location.href = 'br-perkill.html';
+    };
+  </script>
+</body>
+</html>
